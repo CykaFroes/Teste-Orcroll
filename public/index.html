@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>rpg-itunes</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but rpg-itunes doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>rpg-itunes</title>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but rpg-itunes doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+  <script>
+    let MusicasList = "";
+    let AlbunsList =  "";
+
+    let dataRecebidaMusica = function (response) {
+      console.log(response);
+      MusicasList = response.results;
+    }
+    
+    let dataRecebidaAlbum = function (response) {
+      console.log(response);
+      AlbunsList = response.results;
+    }
+    let MenuBtn = function () {
+        const menu = document.querySelector('.r-button');
+        menu.click();
+}
+
+    
+    
+  </script>
+  <!-- <script src="http://alixweb.tech/API/menumob-eslint/mobile-2.js"></script> -->
+  <script src="https://itunes.apple.com/lookup?amgArtistId=643632&entity=song&limit=9&sort=top&callback=dataRecebidaMusica"></script>
+  <script src="https://itunes.apple.com/lookup?id=6483093&entity=album&callback=dataRecebidaAlbum"></script>
+</body>
+
 </html>
